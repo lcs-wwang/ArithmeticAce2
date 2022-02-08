@@ -27,7 +27,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-                
+        
         VStack(spacing: 0) {
             HStack {
                 Text("✕")
@@ -46,17 +46,17 @@ struct ContentView: View {
                 ZStack{
                     Image(systemName: "checkmark.circle")
                         .foregroundColor(.green)
-                        //        CONDITION      true  false
+                    //        CONDITION      true  false
                         .opacity(answerCorrect ? 1.0 : 0.0)
                     
                     Image(systemName: "x.circle")
                         .foregroundColor(.red)
-                        //        CONDITION1       condition2
-                        //        true              false
+                    //        CONDITION1       condition2
+                    //        true              false
                         .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
-                    }
+                }
                 
-               
+                
                 Spacer()
                 TextField("",
                           text: $inputGiven)
@@ -74,7 +74,7 @@ struct ContentView: View {
                         answerCorrect = false
                         return
                     }
-
+                    
                     // Check the answer!
                     if productGiven == correctProduct {
                         // Celebrate! 👍🏼
@@ -87,6 +87,7 @@ struct ContentView: View {
                     Text("Check Answer")
                         .font(.largeTitle)
                 })
+                //Only show when this buttom when an answer has not been check
                     .opacity(answerChecked ? 0.0 : 1.0)
                     .padding()
                     .buttonStyle(.bordered)
@@ -103,14 +104,15 @@ struct ContentView: View {
                 })
                     .padding()
                     .buttonStyle(.bordered)
+                //Only show this button when an answer has been check
                     .opacity(answerChecked ? 1.0 : 0.0)
             }
-
+            
             Spacer()
         }
         .padding(.horizontal)
         .font(.system(size: 72))
-
+        
         
     }
 }
