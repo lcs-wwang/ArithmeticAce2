@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D0A14C227B420B600749FDB /* DivisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A14C127B420B600749FDB /* DivisionView.swift */; };
+		4D0A14C427B420FA00749FDB /* SubtractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A14C327B420FA00749FDB /* SubtractionView.swift */; };
 		4D577D1327B2CDA20007C59A /* ArithmeticAce2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D577D1227B2CDA20007C59A /* ArithmeticAce2App.swift */; };
 		4D577D1527B2CDA20007C59A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D577D1427B2CDA20007C59A /* ContentView.swift */; };
 		4D577D1727B2CDA60007C59A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D577D1627B2CDA60007C59A /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D0A14C127B420B600749FDB /* DivisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionView.swift; sourceTree = "<group>"; };
+		4D0A14C327B420FA00749FDB /* SubtractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionView.swift; sourceTree = "<group>"; };
 		4D577D0F27B2CDA20007C59A /* ArithmeticAce2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArithmeticAce2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D577D1227B2CDA20007C59A /* ArithmeticAce2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticAce2App.swift; sourceTree = "<group>"; };
 		4D577D1427B2CDA20007C59A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 				4D577D1227B2CDA20007C59A /* ArithmeticAce2App.swift */,
 				4D577D1427B2CDA20007C59A /* ContentView.swift */,
 				4D577D2027B2DB020007C59A /* AdditionView.swift */,
+				4D0A14C127B420B600749FDB /* DivisionView.swift */,
+				4D0A14C327B420FA00749FDB /* SubtractionView.swift */,
 				4D577D1627B2CDA60007C59A /* Assets.xcassets */,
 				4D577D1827B2CDA60007C59A /* Preview Content */,
 			);
@@ -141,8 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D577D1527B2CDA20007C59A /* ContentView.swift in Sources */,
+				4D0A14C227B420B600749FDB /* DivisionView.swift in Sources */,
 				4D577D1327B2CDA20007C59A /* ArithmeticAce2App.swift in Sources */,
 				4D577D2127B2DB020007C59A /* AdditionView.swift in Sources */,
+				4D0A14C427B420FA00749FDB /* SubtractionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
