@@ -6,12 +6,38 @@
 //
 
 import SwiftUI
+import Lottie
 
 @main
 struct ArithmeticAce2App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+            TabView {
+                AdditionView()
+                    .tabItem{
+                        Image(systemName: "plus.circle")
+                        Text("Additon")
+                    }
+                
+                SubtractionView()
+                    .tabItem{
+                        Image(systemName: "minus.circle")
+                        Text("subtraction")
+                    }
+                
+                ContentView()
+                    .tabItem{
+                        Image(systemName: "multiply.circle")
+                        Text("multiply")
+                    }
+                
+                DivisionView()
+                    .tabItem{
+                        Image(systemName: "divide.circle")
+                        Text("devide")
+                    }
+            }
         }
     }
 }
