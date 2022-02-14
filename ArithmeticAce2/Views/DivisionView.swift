@@ -1,8 +1,8 @@
 //
 //  DivisionView.swift
-//  ArithmeticAce2
+//  ArithmeticAce
 //
-//  Created by Winston Wang on 2022-02-09.
+//  Created by Russell Gordon on 2022-02-08.
 //
 
 import SwiftUI
@@ -10,8 +10,8 @@ import SwiftUI
 struct DivisionView: View {
     
     // MARK: Stored properties
-    @State var correctQuotient = Int.random(in: 1...12)
     @State var divisor = Int.random(in: 1...12)
+    @State var correctQuotient = Int.random(in: 1...12)
 
     // This string contains whatever the user types in
     @State var inputGiven = ""
@@ -98,8 +98,8 @@ struct DivisionView: View {
                 
                 Button(action: {
                     // Generate a new question
-                    correctQuotient = Int.random(in: 1...12)
                     divisor = Int.random(in: 1...12)
+                    correctQuotient = Int.random(in: 1...12)
 
                     // Reset properties that track what's happening with the current question
                     answerChecked = false
@@ -116,6 +116,17 @@ struct DivisionView: View {
                 // Only show this button when an answer has been checked
                     .opacity(answerChecked == true ? 1.0 : 0.0)
                 
+            }
+            
+            // Reaction animation
+            ZStack {
+                LottieView(animationNamed: "51926-happy")
+                    .opacity(answerCorrect == true ? 1.0 : 0.0)
+                    .padding()
+
+                LottieView(animationNamed: "91726-sad-guy-is-walking")
+                    .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
+                    .padding()
             }
                         
             Spacer()

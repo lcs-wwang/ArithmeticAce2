@@ -1,18 +1,19 @@
 //
 //  AdditionView.swift
-//  ArithmeticAce2
+//  ArithmeticAce
 //
-//  Created by Winston Wang on 2022-02-08.
+//  Created by Russell Gordon on 2022-02-08.
 //
 
 import SwiftUI
-import Lottie
 
 struct AdditionView: View {
     
-    // MARK: Stored properties augend addend
-    @State var augend = Int.random(in: 1...12)
-    @State var addend = Int.random(in: 1...12)
+    // MARK: Stored properties
+    @State var augend = Int.random(in: 1...143)
+    @State var addend = 0
+    
+    // This string contains whatever the user types in
     @State var inputGiven = ""
     
     // Has an answer been checked?
@@ -22,12 +23,12 @@ struct AdditionView: View {
     @State var answerCorrect = false
     
     // MARK: Computed properties
-    // What is the correct product?
-    var correctProduct: Int {
+    // What is the correct sum?
+    var correctSum: Int {
         return augend + addend
     }
     
-    var body: some View{
+    var body: some View {
         
         VStack(spacing: 0) {
             HStack {
@@ -44,40 +45,42 @@ struct AdditionView: View {
             Divider()
             
             HStack {
-                ZStack{
+                ZStack {
                     Image(systemName: "checkmark.circle")
                         .foregroundColor(.green)
                     //        CONDITION      true  false
-                        .opacity(answerCorrect ? 1.0 : 0.0)
+                        .opacity(answerCorrect == true ? 1.0 : 0.0)
                     
-                    Image(systemName: "x.circle")
+                    Image(systemName: "x.square")
                         .foregroundColor(.red)
-                    //        CONDITION1       condition2
-                    //        true              false
+                    //        CONDITION1         AND     CONDITION2         true  false
+                    //       answerChecked = true     answerCorrect = false
                         .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
                 }
                 
-                
                 Spacer()
+                
                 TextField("",
                           text: $inputGiven)
                     .multilineTextAlignment(.trailing)
             }
-            ZStack{
+            
+            ZStack {
+                
                 Button(action: {
                     
                     // Answer has been checked!
                     answerChecked = true
                     
                     // Convert the input given to an integer, if possible
-                    guard let productGiven = Int(inputGiven) else {
+                    guard let sumGiven = Int(inputGiven) else {
                         // Sadness, not a number
                         answerCorrect = false
                         return
                     }
                     
                     // Check the answer!
-                    if productGiven == correctProduct {
+                    if sumGiven == correctSum {
                         // Celebrate! 👍🏼
                         answerCorrect = true
                     } else {
@@ -88,16 +91,21 @@ struct AdditionView: View {
                     Text("Check Answer")
                         .font(.largeTitle)
                 })
-                //Only show when this buttom when an answer has not been check
-                    .opacity(answerChecked ? 0.0 : 1.0)
                     .padding()
                     .buttonStyle(.bordered)
+                // Only show this button when an answer has not been checked
+                    .opacity(answerChecked == false ? 1.0 : 0.0)
                 
                 Button(action: {
-                    augend = Int.random(in: 1...12)
-                    addend = Int.random(in: 1...12)
+                    // Generate a new question
+                    augend = Int.random(in: 1...143)
+                    addend = Int.random(in: 1...144 - augend)
+                    
+                    // Reset properties that track what's happening with the current question
                     answerChecked = false
                     answerCorrect = false
+                    
+                    // Reset the input field
                     inputGiven = ""
                 }, label: {
                     Text("New question")
@@ -105,17 +113,18 @@ struct AdditionView: View {
                 })
                     .padding()
                     .buttonStyle(.bordered)
-                //Only show this button when an answer has been check
-                    .opacity(answerChecked ? 1.0 : 0.0)
-            }
-            
-            ZStack{
-                //Animation reaction
-                LottieView(animationNamed: "51926-happy.json")
-                    .opacity(answerCorrect  ? 1.0 : 0.0)
-                    .padding()
+                // Only show this button when an answer has been checked
+                    .opacity(answerChecked == true ? 1.0 : 0.0)
                 
-                LottieView(animationNamed: "21445-sad-developerdesigner")
+            }
+         
+            // Reaction animation
+            ZStack {
+                LottieView(animationNamed: "51926-happy")
+                    .opacity(answerCorrect == true ? 1.0 : 0.0)
+                    .padding()
+
+                LottieView(animationNamed: "91726-sad-guy-is-walking")
                     .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
                     .padding()
             }
@@ -124,10 +133,12 @@ struct AdditionView: View {
         }
         .padding(.horizontal)
         .font(.system(size: 72))
-        
+        //A block of code that runs once the view structure has been created
+        .task {
+            addend = Int.random(in: 1...144 - augend)
+        }
         
     }
-        
 }
 
 struct AdditionView_Previews: PreviewProvider {

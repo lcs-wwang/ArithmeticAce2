@@ -1,8 +1,8 @@
 //
 //  SubtractionView.swift
-//  ArithmeticAce2
+//  ArithmeticAce
 //
-//  Created by Winston Wang on 2022-02-09.
+//  Created by Russell Gordon on 2022-02-09.
 //
 
 import SwiftUI
@@ -118,11 +118,22 @@ struct SubtractionView: View {
                 
             }
             
+            // Reaction animation
+            ZStack {
+                LottieView(animationNamed: "51926-happy")
+                    .opacity(answerCorrect == true ? 1.0 : 0.0)
+                    .padding()
+
+                LottieView(animationNamed: "91726-sad-guy-is-walking")
+                    .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
+                    .padding()
+            }
+            
             Spacer()
         }
         .padding(.horizontal)
         .font(.system(size: 72))
-        //Closure will run once when the view is loaded
+        // Closure (block of code) will run once when the view is loaded
         .task {
             subtrahend = Int.random(in: 1...minuend)
         }
@@ -136,4 +147,3 @@ struct SubtractionView_Previews: PreviewProvider {
         SubtractionView()
     }
 }
-

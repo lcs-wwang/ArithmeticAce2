@@ -1,12 +1,11 @@
 //
-//  ArithmeticAce2App.swift
-//  ArithmeticAce2
+//  ArithmeticAceApp.swift
+//  ArithmeticAce
 //
-//  Created by Winston Wang on 2022-02-08.
+//  Created by Russell Gordon on 2022-02-07.
 //
 
 import SwiftUI
-import Lottie
 
 @main
 struct ArithmeticAce2App: App {
@@ -15,27 +14,27 @@ struct ArithmeticAce2App: App {
             
             TabView {
                 AdditionView()
-                    .tabItem{
+                    .tabItem {
                         Image(systemName: "plus.circle")
-                        Text("Additon")
+                        Text("Add")
                     }
-                
+
                 SubtractionView()
-                    .tabItem{
+                    .tabItem {
                         Image(systemName: "minus.circle")
-                        Text("subtraction")
+                        Text("Subtract")
                     }
                 
                 ContentView()
-                    .tabItem{
+                    .tabItem {
                         Image(systemName: "multiply.circle")
-                        Text("multiply")
+                        Text("Multiply")
                     }
                 
                 DivisionView()
-                    .tabItem{
+                    .tabItem {
                         Image(systemName: "divide.circle")
-                        Text("devide")
+                        Text("Divide")
                     }
             }
         }

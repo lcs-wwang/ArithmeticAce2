@@ -78,7 +78,6 @@
 		4D577D0627B2CDA20007C59A = {
 			isa = PBXGroup;
 			children = (
-				4D0A14CD27B4252F00749FDB /* Animation */,
 				4D577D1127B2CDA20007C59A /* ArithmeticAce2 */,
 				4D577D1027B2CDA20007C59A /* Products */,
 			);
@@ -96,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				4D577D1227B2CDA20007C59A /* ArithmeticAce2App.swift */,
+				4D0A14CD27B4252F00749FDB /* Animation */,
 				4D0A14C827B422D000749FDB /* Views */,
 				4D577D1627B2CDA60007C59A /* Assets.xcassets */,
 				4D577D1827B2CDA60007C59A /* Preview Content */,
