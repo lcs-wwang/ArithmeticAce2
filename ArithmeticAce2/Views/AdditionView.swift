@@ -36,27 +36,9 @@ struct AdditionView: View {
             
             Divider()
             
-            HStack {
-                ZStack {
-                    Image(systemName: "checkmark.circle")
-                        .foregroundColor(.green)
-                    //        CONDITION      true  false
-                        .opacity(answerCorrect == true ? 1.0 : 0.0)
-                    
-                    Image(systemName: "x.square")
-                        .foregroundColor(.red)
-                    //        CONDITION1         AND     CONDITION2         true  false
-                    //       answerChecked = true     answerCorrect = false
-                        .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
-                }
-                
-                Spacer()
-                
-                TextField("",
-                          text: $inputGiven)
-                    .multilineTextAlignment(.trailing)
-            }
-            
+            AnswerAndResultView(answerChecked: answerChecked,
+                                answerCorrect: answerCorrect,
+                                inputGiven: $inputGiven)
             ZStack {
                 
                 Button(action: {
@@ -109,13 +91,13 @@ struct AdditionView: View {
                     .opacity(answerChecked == true ? 1.0 : 0.0)
                 
             }
-         
+            
             // Reaction animation
             ZStack {
                 LottieView(animationNamed: "51926-happy")
                     .opacity(answerCorrect == true ? 1.0 : 0.0)
                     .padding()
-
+                
                 LottieView(animationNamed: "91726-sad-guy-is-walking")
                     .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
                     .padding()

@@ -38,18 +38,9 @@ struct SubtractionView: View {
             Divider()
             
             HStack {
-                ZStack {
-                    Image(systemName: "checkmark.circle")
-                        .foregroundColor(.green)
-                    //        CONDITION      true  false
-                        .opacity(answerCorrect == true ? 1.0 : 0.0)
-                    
-                    Image(systemName: "x.square")
-                        .foregroundColor(.red)
-                    //        CONDITION1         AND     CONDITION2         true  false
-                    //       answerChecked = true     answerCorrect = false
-                        .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
-                }
+                AnswerAndResultView(answerChecked: answerChecked,
+                                    answerCorrect: answerCorrect,
+                                    inputGiven: $inputGiven)
                 
                 Spacer()
                 
@@ -131,7 +122,7 @@ struct SubtractionView: View {
             subtrahend = Int.random(in: 1...minuend)
         }
         
-        
+        }
     }
 }
 
