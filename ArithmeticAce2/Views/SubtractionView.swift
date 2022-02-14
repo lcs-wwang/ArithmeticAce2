@@ -32,15 +32,8 @@ struct SubtractionView: View {
         
         VStack(spacing: 0) {
             HStack {
-                Text("-")
                 
-                Spacer()
-                
-                VStack(alignment: .trailing) {
-                    Text("\(minuend)")
-                    Text("\(subtrahend)")
-                }
-            }
+                QuestionPresentationView(operation: "-", firstValue: minuend, secondValue: subtrahend)
             
             Divider()
             

@@ -29,16 +29,8 @@ struct ContentView: View {
     var body: some View {
         
         VStack(spacing: 0) {
-            HStack {
-                Text("✕")
-                
-                Spacer()
-                
-                VStack(alignment: .trailing) {
-                    Text("\(multiplicand)")
-                    Text("\(multiplier)")
-                }
-            }
+            
+            QuestionPresentationView(operation: "✕", firstValue: multiplicand, secondValue: multiplier)
             
             Divider()
             
@@ -107,7 +99,16 @@ struct ContentView: View {
                 //Only show this button when an answer has been check
                     .opacity(answerChecked ? 1.0 : 0.0)
             }
-            
+            ZStack {
+                LottieView(animationNamed: "51926-happy")
+                    .opacity(answerCorrect == true ? 1.0 : 0.0)
+                    .padding()
+
+                LottieView(animationNamed: "91726-sad-guy-is-walking")
+                    .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
+                    .padding()
+            }
+
             Spacer()
         }
         .padding(.horizontal)
