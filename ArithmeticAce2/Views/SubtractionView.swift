@@ -98,15 +98,8 @@ struct SubtractionView: View {
                 
             }
             
-            // Reaction animation
-            ZStack {
-                LottieView(animationNamed: "80312-happy-to-update")
-                    .opacity(answerCorrect == true ? 1.0 : 0.0)
-                    .padding()
-                
-                LottieView(animationNamed: "55385-worried")
-                    .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
-                    .padding()
+            ZStack{
+                AnimationResultView(answerCorrect: answerCorrect, answerChecked: answerChecked)
             }
             
             Spacer()
