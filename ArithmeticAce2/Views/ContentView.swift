@@ -29,15 +29,21 @@ struct ContentView: View {
     var body: some View {
         
         VStack(spacing: 0) {
-            
-            QuestionPresentationView(operation: "✕", firstValue: multiplicand, secondValue: multiplier)
+            HStack{
+                
+                QuestionPresentationView(operation: "✕", firstValue: multiplicand, secondValue: multiplier)
+            }
             
             Divider()
             
             HStack {
-                AnswerAndResultView(answerChecked: answerChecked,
-                                    answerCorrect: answerCorrect,
-                                    inputGiven: $inputGiven)
+                ZStack{
+                    AnswerAndResultView(answerChecked: answerChecked,
+                                        answerCorrect: answerCorrect,
+                                        inputGiven: $inputGiven)
+                }
+            }
+            
             ZStack{
                 Button(action: {
                     
@@ -84,23 +90,23 @@ struct ContentView: View {
                     .opacity(answerChecked ? 1.0 : 0.0)
             }
             ZStack {
-                LottieView(animationNamed: "51926-happy")
+                LottieView(animationNamed: "80312-happy-to-update")
                     .opacity(answerCorrect == true ? 1.0 : 0.0)
                     .padding()
-
-                LottieView(animationNamed: "91726-sad-guy-is-walking")
+                
+                LottieView(animationNamed: "55385-worried")
                     .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
                     .padding()
             }
-
+            
             Spacer()
         }
         .padding(.horizontal)
         .font(.system(size: 72))
         
-        }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

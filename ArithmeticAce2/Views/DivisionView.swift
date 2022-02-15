@@ -12,7 +12,7 @@ struct DivisionView: View {
     // MARK: Stored properties
     @State var divisor = Int.random(in: 1...12)
     @State var correctQuotient = Int.random(in: 1...12)
-
+    
     // This string contains whatever the user types in
     @State var inputGiven = ""
     
@@ -31,15 +31,19 @@ struct DivisionView: View {
     var body: some View {
         
         VStack(spacing: 0) {
-            QuestionPresentationView(operation: "÷", firstValue: dividend, secondValue: divisor)
+            HStack{
+                QuestionPresentationView(operation: "÷", firstValue: dividend, secondValue: divisor)
+            }
             
             Divider()
             
             HStack {
-                AnswerAndResultView(answerChecked: answerChecked,
-                                    answerCorrect: answerCorrect,
-                                    inputGiven: $inputGiven)
-            
+                ZStack{
+                    AnswerAndResultView(answerChecked: answerChecked,
+                                        answerCorrect: answerCorrect,
+                                        inputGiven: $inputGiven)
+                }
+            }
             ZStack {
                 
                 Button(action: {
@@ -75,7 +79,7 @@ struct DivisionView: View {
                     // Generate a new question
                     divisor = Int.random(in: 1...12)
                     correctQuotient = Int.random(in: 1...12)
-
+                    
                     // Reset properties that track what's happening with the current question
                     answerChecked = false
                     answerCorrect = false
@@ -95,21 +99,21 @@ struct DivisionView: View {
             
             // Reaction animation
             ZStack {
-                LottieView(animationNamed: "51926-happy")
+                LottieView(animationNamed: "80312-happy-to-update")
                     .opacity(answerCorrect == true ? 1.0 : 0.0)
                     .padding()
-
-                LottieView(animationNamed: "91726-sad-guy-is-walking")
+                
+                LottieView(animationNamed: "55385-worried")
                     .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
                     .padding()
             }
-                        
+            
             Spacer()
         }
         .padding(.horizontal)
         .font(.system(size: 72))
         
-        }
+        
     }
 }
 

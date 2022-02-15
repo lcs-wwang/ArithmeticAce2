@@ -31,34 +31,29 @@ struct AdditionView: View {
     var body: some View {
         
         VStack(spacing: 0) {
-            
-            QuestionPresentationView(operation: "+", firstValue: augend, secondValue: addend)
+            HStack{
+                
+                QuestionPresentationView(operation: "+", firstValue: augend, secondValue: addend)
+            }
             
             Divider()
-            
-            AnswerAndResultView(answerChecked: answerChecked,
-                                answerCorrect: answerCorrect,
-                                inputGiven: $inputGiven)
+            HStack{
+                ZStack{
+                    AnswerAndResultView(answerChecked: answerChecked,
+                                        answerCorrect: answerCorrect,
+                                        inputGiven: $inputGiven)
+                }
+            }
             ZStack {
-                
                 Button(action: {
-                    
-                    // Answer has been checked!
                     answerChecked = true
-                    
-                    // Convert the input given to an integer, if possible
                     guard let sumGiven = Int(inputGiven) else {
-                        // Sadness, not a number
                         answerCorrect = false
                         return
                     }
-                    
-                    // Check the answer!
                     if sumGiven == correctSum {
-                        // Celebrate! 👍🏼
                         answerCorrect = true
                     } else {
-                        // Sadness, they gave a number, but it's correct 😭
                         answerCorrect = false
                     }
                 }, label: {
@@ -67,19 +62,18 @@ struct AdditionView: View {
                 })
                     .padding()
                     .buttonStyle(.bordered)
-                // Only show this button when an answer has not been checked
                     .opacity(answerChecked == false ? 1.0 : 0.0)
                 
+                
+                
                 Button(action: {
-                    // Generate a new question
+                    
                     augend = Int.random(in: 1...143)
                     addend = Int.random(in: 1...144 - augend)
                     
-                    // Reset properties that track what's happening with the current question
                     answerChecked = false
                     answerCorrect = false
                     
-                    // Reset the input field
                     inputGiven = ""
                 }, label: {
                     Text("New question")
@@ -87,18 +81,18 @@ struct AdditionView: View {
                 })
                     .padding()
                     .buttonStyle(.bordered)
-                // Only show this button when an answer has been checked
+                
                     .opacity(answerChecked == true ? 1.0 : 0.0)
                 
             }
             
             // Reaction animation
             ZStack {
-                LottieView(animationNamed: "51926-happy")
+                LottieView(animationNamed: "80312-happy-to-update")
                     .opacity(answerCorrect == true ? 1.0 : 0.0)
                     .padding()
                 
-                LottieView(animationNamed: "91726-sad-guy-is-walking")
+                LottieView(animationNamed: "55385-worried")
                     .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
                     .padding()
             }

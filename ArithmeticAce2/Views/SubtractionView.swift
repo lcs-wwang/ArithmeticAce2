@@ -31,22 +31,18 @@ struct SubtractionView: View {
     var body: some View {
         
         VStack(spacing: 0) {
-            HStack {
+            HStack{
                 
                 QuestionPresentationView(operation: "-", firstValue: minuend, secondValue: subtrahend)
+            }
             
             Divider()
-            
-            HStack {
-                AnswerAndResultView(answerChecked: answerChecked,
-                                    answerCorrect: answerCorrect,
-                                    inputGiven: $inputGiven)
-                
-                Spacer()
-                
-                TextField("",
-                          text: $inputGiven)
-                    .multilineTextAlignment(.trailing)
+            HStack{
+                ZStack{
+                    AnswerAndResultView(answerChecked: answerChecked,
+                                        answerCorrect: answerCorrect,
+                                        inputGiven: $inputGiven)
+                }
             }
             
             ZStack {
@@ -104,11 +100,11 @@ struct SubtractionView: View {
             
             // Reaction animation
             ZStack {
-                LottieView(animationNamed: "51926-happy")
+                LottieView(animationNamed: "80312-happy-to-update")
                     .opacity(answerCorrect == true ? 1.0 : 0.0)
                     .padding()
-
-                LottieView(animationNamed: "91726-sad-guy-is-walking")
+                
+                LottieView(animationNamed: "55385-worried")
                     .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
                     .padding()
             }
@@ -121,10 +117,10 @@ struct SubtractionView: View {
         .task {
             subtrahend = Int.random(in: 1...minuend)
         }
-        
-        }
     }
+    
 }
+
 
 struct SubtractionView_Previews: PreviewProvider {
     static var previews: some View {
