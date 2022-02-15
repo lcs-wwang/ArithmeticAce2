@@ -45,34 +45,7 @@ struct ContentView: View {
             }
             
             ZStack{
-                Button(action: {
-                    
-                    // Answer has been checked!
-                    answerChecked = true
-                    
-                    // Convert the input given to an integer, if possible
-                    guard let productGiven = Int(inputGiven) else {
-                        // Sadness, not a number
-                        answerCorrect = false
-                        return
-                    }
-                    
-                    // Check the answer!
-                    if productGiven == correctProduct {
-                        // Celebrate! 👍🏼
-                        answerCorrect = true
-                    } else {
-                        // Sadness, they gave a number, but it's correct 😭
-                        answerCorrect = false
-                    }
-                }, label: {
-                    Text("Check Answer")
-                        .font(.largeTitle)
-                })
-                //Only show when this buttom when an answer has not been check
-                    .opacity(answerChecked ? 0.0 : 1.0)
-                    .padding()
-                    .buttonStyle(.bordered)
+                ButtonView(correctAnswer: correctProduct, answerChecked: $answerChecked, answerCorrect: $answerCorrect, inputGiven: inputGiven)
                 
                 Button(action: {
                     multiplicand = Int.random(in: 1...12)

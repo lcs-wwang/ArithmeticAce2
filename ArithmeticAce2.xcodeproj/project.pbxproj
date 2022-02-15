@@ -18,6 +18,7 @@
 		4D577D1A27B2CDA60007C59A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D577D1927B2CDA60007C59A /* Preview Assets.xcassets */; };
 		4D577D2127B2DB020007C59A /* AdditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D577D2027B2DB020007C59A /* AdditionView.swift */; };
 		4D6CE9CC27BC0CC2008E9CDD /* AnimationResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CE9CB27BC0CC2008E9CDD /* AnimationResultView.swift */; };
+		4D6CE9CE27BC0EBD008E9CDD /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CE9CD27BC0EBD008E9CDD /* ButtonView.swift */; };
 		4DE4BAD227BA9A88008AC3A0 /* QuestionPresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4BAD127BA9A88008AC3A0 /* QuestionPresentationView.swift */; };
 		4DE4BAD427BAA04E008AC3A0 /* AnswerAndResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4BAD327BAA04E008AC3A0 /* AnswerAndResultView.swift */; };
 		4DEB897827BB376300DA0C20 /* 55385-worried.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DEB897727BB376300DA0C20 /* 55385-worried.json */; };
@@ -35,6 +36,7 @@
 		4D577D1927B2CDA60007C59A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4D577D2027B2DB020007C59A /* AdditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionView.swift; sourceTree = "<group>"; };
 		4D6CE9CB27BC0CC2008E9CDD /* AnimationResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationResultView.swift; sourceTree = "<group>"; };
+		4D6CE9CD27BC0EBD008E9CDD /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		4DE4BAD127BA9A88008AC3A0 /* QuestionPresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresentationView.swift; sourceTree = "<group>"; };
 		4DE4BAD327BAA04E008AC3A0 /* AnswerAndResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerAndResultView.swift; sourceTree = "<group>"; };
 		4DEB897727BB376300DA0C20 /* 55385-worried.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "55385-worried.json"; path = "../../../../Downloads/55385-worried.json"; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				4DE4BAD127BA9A88008AC3A0 /* QuestionPresentationView.swift */,
 				4DE4BAD327BAA04E008AC3A0 /* AnswerAndResultView.swift */,
 				4D6CE9CB27BC0CC2008E9CDD /* AnimationResultView.swift */,
+				4D6CE9CD27BC0EBD008E9CDD /* ButtonView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			files = (
 				4D577D1527B2CDA20007C59A /* ContentView.swift in Sources */,
 				4DE4BAD427BAA04E008AC3A0 /* AnswerAndResultView.swift in Sources */,
+				4D6CE9CE27BC0EBD008E9CDD /* ButtonView.swift in Sources */,
 				4DE4BAD227BA9A88008AC3A0 /* QuestionPresentationView.swift in Sources */,
 				4D0A14C227B420B600749FDB /* DivisionView.swift in Sources */,
 				4D6CE9CC27BC0CC2008E9CDD /* AnimationResultView.swift in Sources */,

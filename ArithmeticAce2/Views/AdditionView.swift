@@ -45,24 +45,13 @@ struct AdditionView: View {
                 }
             }
             ZStack {
-                Button(action: {
-                    answerChecked = true
-                    guard let sumGiven = Int(inputGiven) else {
-                        answerCorrect = false
-                        return
-                    }
-                    if sumGiven == correctSum {
-                        answerCorrect = true
-                    } else {
-                        answerCorrect = false
-                    }
-                }, label: {
-                    Text("Check Answer")
-                        .font(.largeTitle)
-                })
-                    .padding()
-                    .buttonStyle(.bordered)
-                    .opacity(answerChecked == false ? 1.0 : 0.0)
+                
+                
+                
+                ButtonView(correctAnswer: correctSum,
+                           answerChecked: $answerChecked,
+                           answerCorrect: $answerCorrect,
+                           inputGiven: inputGiven)
                 
                 
                 
